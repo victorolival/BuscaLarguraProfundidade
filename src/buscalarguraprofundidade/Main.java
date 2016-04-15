@@ -41,6 +41,7 @@ public class Main {
         grafo.inseriraresta(4, 2);
         grafo.inseriraresta(4, 3);
         
+        System.out.println("Grafo 1");
         vetor = grafo.listararestasadj(0);
         grafo.imprimi(vetor);
         System.out.println("");
@@ -69,6 +70,7 @@ public class Main {
         grafo2.inseriraresta(4, 2);
         grafo2.inseriraresta(4, 3);
         
+        System.out.println("Grafo 2");
         vetor2 = grafo2.listararestasadj(0);
         grafo2.imprimi(vetor2);
         System.out.println("");
