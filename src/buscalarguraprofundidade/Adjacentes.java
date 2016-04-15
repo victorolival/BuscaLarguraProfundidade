@@ -9,13 +9,15 @@ package buscalarguraprofundidade;
  *
  * @author symbol
  */
-public class BuscaLargura {
+public class Adjacentes {
+    private static final int tamanhoFila = 1000;
     
+    private int verticesadjacentes[];
     
+    private int total;
     
-    public buscalargura(int vertice){
+    public int Adjacentes () {
         
     }
-    
     
 }
