@@ -11,30 +11,35 @@ package buscalarguraprofundidade;
  */
 public class Grafos {
     private int vertices;
-    private int [][] matrizadj;
+    private Lista[] l;
 
 
     Grafos(int vertices){
         this.vertices = vertices;
-        this.matrizadj = new int [vertices][vertices];
-        for(int i = 0; i < matrizadj.length; i++)
-            for(int j = 0; j < matrizadj[0].length; j++)
-                matrizadj[i][j]=0;
+        this.l = new Lista[vertices];
+        l[0] = new Lista();
+        for(int i=0; i<l.length;i++){
+            l[i] = new Lista();
+        }
+          
     }       
     
     
     public void inseriraresta(int origem, int destino){
-        matrizadj [origem][destino] = 1;
+        l[origem].inserir(destino);
     }
     
     public void removeraresta(int origem, int destino){
-        matrizadj [origem][destino] = 0;
+        for (int i=0; i < vetoradj[origem]
+            
+        }
+        vetoradj [origem][destino] = 0;
     }
     public void esistearesta(int origem, int destino){
-        if(matrizadj [origem][destino] == 1)
-            System.out.println("Existe");
-        else
+        if(vetoradj [origem] = destino == true)
             System.out.println("Não Existe");
+        else
+            System.out.println("Existe");
     }
     public int[] listararestasadj (int vertice){
         int vetor [] = new int [matrizadj[vertice].length];
