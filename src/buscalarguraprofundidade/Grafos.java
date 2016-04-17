@@ -17,7 +17,6 @@ public class Grafos {
     Grafos(int vertices){
         this.vertices = vertices;
         this.l = new Lista[vertices];
-        l[0] = new Lista();
         for(int i=0; i<l.length;i++){
             l[i] = new Lista();
         }
@@ -31,19 +30,23 @@ public class Grafos {
     
     public void removeraresta(int origem, int destino){
         for(int i=0; i<l[origem].tamanho();i++){
-            if(l[i].equals(destino))
+            if(l[origem].get(i) == destino)
                 l[origem].remover(i);
         }
                 
         
     }
     public void existearesta(int origem, int destino){
+        boolean existe = false;
         for(int i=0; i< l[origem].tamanho();i++){
-            if(l[i].equals(destino))
-                System.out.println("Existe aresta entre os vertices "+origem+" e "+destino);
-            else
-                System.out.println("Não existe aresta entre os vertices "+origem+" e "+destino);
+            if(l[origem].get(i) == destino)
+                existe = true;
         }
+        if(existe == true)
+            System.out.println("Existe aresta entre os vertices "+origem+" e "+destino);
+        else
+            System.out.println("Não existe aresta entre os vertices "+origem+" e "+destino);
+        
             
     }
     public void listararestasadj (int vertice){

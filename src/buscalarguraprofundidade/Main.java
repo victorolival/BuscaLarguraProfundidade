@@ -40,6 +40,7 @@ public class Main {
         
         grafo.existearesta(0, 1);
         
+        
         grafo.listararestasadj(0);
         grafo.listararestasadj(1);
         grafo.listararestasadj(2);
