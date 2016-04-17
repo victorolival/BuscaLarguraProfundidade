@@ -24,8 +24,12 @@ public class Lista {
     public int get(int ind){
         return dados.get(ind);
     }
-    public int tamanho (int tamanho){
+    public int tamanho(){
         return dados.size();
     }
-    
+    public void imprmir (){
+        for(int i=0; i<dados.size();i++)
+            System.out.print(dados.get(i)+",");
+        System.out.println("");
+    }
 }

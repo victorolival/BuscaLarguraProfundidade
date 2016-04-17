@@ -30,30 +30,27 @@ public class Grafos {
     }
     
     public void removeraresta(int origem, int destino){
-        for (int i=0; i < vetoradj[origem]
-            
+        for(int i=0; i<l[origem].tamanho();i++){
+            if(l[i].equals(destino))
+                l[origem].remover(i);
         }
-        vetoradj [origem][destino] = 0;
-    }
-    public void esistearesta(int origem, int destino){
-        if(vetoradj [origem] = destino == true)
-            System.out.println("Não Existe");
-        else
-            System.out.println("Existe");
-    }
-    public int[] listararestasadj (int vertice){
-        int vetor [] = new int [matrizadj[vertice].length];
-        for(int i = 0; i < matrizadj[vertice].length; i++){
-           vetor[i]= matrizadj[vertice][i];
-        }
-        return vetor;
-            
                 
+        
+    }
+    public void existearesta(int origem, int destino){
+        for(int i=0; i< l[origem].tamanho();i++){
+            if(l[i].equals(destino))
+                System.out.println("Existe aresta entre os vertices "+origem+" e "+destino);
+            else
+                System.out.println("Não existe aresta entre os vertices "+origem+" e "+destino);
+        }
+            
+    }
+    public void listararestasadj (int vertice){
+        System.out.print("Vertice "+vertice+": ");
+        for(int i=0; i<l[vertice].tamanho();i++)
+            System.out.print(l[vertice].get(i)+",");
+        System.out.println("");
     }
     
-    public void imprimi(int vetor[]){
-        for(int i=0; i<vetor.length; i++){
-            System.out.print(vetor[i]);
-        }
-    }
 }
