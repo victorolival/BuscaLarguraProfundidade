@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package buscalarguraprofundidade;
-
+import buscalarguraprofundidade.Grafos;
 /**
  *
  * @author Matheus
@@ -13,6 +13,7 @@ public class BuscaLargura {
     private Lista [] p;
     private Lista [] v;
     private FilaDinamica fila = new FilaDinamica();
+    
     
     
     
@@ -30,8 +31,10 @@ public class BuscaLargura {
     
     public void buscar(int vertice){
         fila.Push(vertice);
-        v[0].inserir(vertice);
         while (fila.Vazia() == false){
+            fila.Pop();
+            v[0].inserir(vertice);
+            
             
         }
     }

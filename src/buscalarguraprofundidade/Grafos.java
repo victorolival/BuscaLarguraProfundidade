@@ -13,6 +13,7 @@ public class Grafos {
     private int vertices;
     private Lista[] l;
 
+    
 
     Grafos(int vertices){
         this.vertices = vertices;
@@ -55,5 +56,18 @@ public class Grafos {
             System.out.print(l[vertice].get(i)+",");
         System.out.println("");
     }
+
+    public Lista getL(int vertice) {
+        return l[vertice];
+    }
+
+    public int getVertices() {
+        return vertices;
+    }
+    
+
+    
+    
+    
     
 }
