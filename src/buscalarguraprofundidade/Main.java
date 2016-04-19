@@ -41,11 +41,11 @@ public class Main {
         grafo.existearesta(0, 1);
         
         
-        grafo.listararestasadj(0);
-        grafo.listararestasadj(1);
-        grafo.listararestasadj(2);
-        grafo.listararestasadj(3);
-        grafo.listararestasadj(4);
+        grafo.imprimilistaadj(0);
+        grafo.imprimilistaadj(1);
+        grafo.imprimilistaadj(2);
+        grafo.imprimilistaadj(3);
+        grafo.imprimilistaadj(4);
         
     }
     

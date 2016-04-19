@@ -12,6 +12,9 @@ package buscalarguraprofundidade;
 public class Grafos {
     private int vertices;
     private Lista[] l;
+    private FilaDinamica fila = new FilaDinamica();
+    private Lista[] verticesadj; 
+    private Lista[] verticesvisitados; 
 
     
 
@@ -20,6 +23,14 @@ public class Grafos {
         this.l = new Lista[vertices];
         for(int i=0; i<l.length;i++){
             l[i] = new Lista();
+        }
+        this.verticesadj = new Lista[vertices];
+        for(int j=0; j<verticesadj.length;j++){
+            verticesadj[j] = new Lista();
+        }
+        this.verticesvisitados = new Lista[vertices];
+        for(int k=0; k<verticesvisitados.length;k++){
+            verticesvisitados[k] = new Lista();
         }
           
     }       
@@ -50,19 +61,38 @@ public class Grafos {
         
             
     }
-    public void listararestasadj (int vertice){
+    public Lista listararestasadj (int vertice){
+        /*System.out.print("Vertice "+vertice+": ");
+        for(int i=0; i<l[vertice].tamanho();i++)
+            System.out.print(l[vertice].get(i)+",");
+        System.out.println("");
+        */
+        return l[vertice];
+    
+        
+    }
+    
+    public void imprimilistaadj (int vertice){
         System.out.print("Vertice "+vertice+": ");
         for(int i=0; i<l[vertice].tamanho();i++)
             System.out.print(l[vertice].get(i)+",");
         System.out.println("");
     }
 
-    public Lista getL(int vertice) {
-        return l[vertice];
-    }
-
-    public int getVertices() {
-        return vertices;
+    public void buscalargura (Grafos grafo, int verticeinicial){
+        int verticeprocessando = verticeinicial;
+        fila.Push(verticeprocessando);
+        while(!fila.Vazia()){
+            int verticevisitado = fila.Peek();
+            fila.Pop();
+            verticesvisitados[0].inserir(verticevisitado);
+            
+            
+        }
+        
+        
+        
+        
     }
     
 
