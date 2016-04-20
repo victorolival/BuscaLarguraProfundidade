@@ -13,7 +13,7 @@ public class Grafos {
     private int vertices;
     private Lista[] l;
     private Fila fila = new Fila();
-    private Lista[] verticesadj; 
+    private Lista[] verticesprocessados; 
     private Lista[] verticesvisitados; 
 
     
@@ -24,11 +24,11 @@ public class Grafos {
         for(int i=0; i<l.length;i++){
             l[i] = new Lista();
         }
-        this.verticesadj = new Lista[vertices];
-        for(int j=0; j<verticesadj.length;j++){
-            verticesadj[j] = new Lista();
+        this.verticesprocessados = new Lista[1];
+        for(int j=0; j<verticesprocessados.length;j++){
+            verticesprocessados[j] = new Lista();
         }
-        this.verticesvisitados = new Lista[vertices];
+        this.verticesvisitados = new Lista[1];
         for(int k=0; k<verticesvisitados.length;k++){
             verticesvisitados[k] = new Lista();
         }
@@ -80,35 +80,25 @@ public class Grafos {
     }
 
     public void buscalargura (Grafos grafo, int verticeinicial){
-        int f=0;
+        
         fila.push(verticeinicial);
         while(!fila.isEmpty()){
             int verticevisitado = fila.peek();
             fila.pop();
             verticesvisitados[0].inserir(verticevisitado);
-            while(f < verticesadj[0].tamanho()){
-                verticesadj[0].remover(0);
-            }
             
             for (int i = 0; i < l[verticevisitado].tamanho(); i++) {
-                verticesadj[0].inserir(l[verticevisitado].get(i));
-            }
-            for (int i = 0; i < verticesadj[0].tamanho(); i++) {
-                for (int j = 0; j < verticesvisitados[0].tamanho(); j++) {
-                    if(verticesadj[0].get(i) != verticesvisitados[0].get(j)){
-                        fila.push(verticesadj[0].get(i));
-                    }
+                if(!verticesvisitados[0].consta(l[verticevisitado].get(i)) && !verticesprocessados[0].consta(l[verticevisitado].get(i))){
+                    fila.push(l[verticevisitado].get(i));
+                    verticesprocessados[0].inserir(l[verticevisitado].get(i));
                 }
             }
-            
-        
-            
         }
-        
-        System.out.print("Arvore Geradora: ");
-        for(int r=0; r<verticesvisitados[0].tamanho();r++)
-            System.out.print(verticesvisitados[0].get(r)+",");
+        System.out.print("Árvore geradora: ");
+        for(int i=0; i<verticesvisitados[0].tamanho();i++)
+            System.out.print(verticesvisitados[0].get(i)+",");
         System.out.println("");
+        
         
         
         

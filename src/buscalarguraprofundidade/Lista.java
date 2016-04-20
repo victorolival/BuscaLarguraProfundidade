@@ -32,4 +32,10 @@ public class Lista {
             System.out.print(dados.get(i)+",");
         System.out.println("");
     }
+    public boolean consta(int valor){
+        if(dados.contains(valor))
+            return true;
+        else
+            return false;
+    }
 }
