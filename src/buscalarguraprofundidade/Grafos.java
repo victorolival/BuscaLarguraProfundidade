@@ -14,7 +14,8 @@ public class Grafos {
     private Lista[] l;
     private Fila fila = new Fila();
     private Lista[] verticesprocessados; 
-    private Lista[] verticesvisitados; 
+    private Lista[] verticesvisitados;
+    private Pilha pilha = new Pilha();
 
     
 
@@ -104,9 +105,29 @@ public class Grafos {
         
     }
     
-
+    public void funcao_visita (Pilha pilha, int verticevisitado){
+        verticesprocessados[0].inserir(verticevisitado);
+        pilha.push(verticevisitado);
+        for (int i = 0; i < l[verticevisitado].tamanho(); i++) {
+            if(!verticesvisitados[0].consta(l[verticevisitado].get(i)) && !verticesprocessados[0].consta(l[verticevisitado].get(i))){
+                funcao_visita(pilha, l[verticevisitado].get(i));
+            }
+        }
+        int verticepilha = pilha.peek();
+        pilha.pop();
+        verticesvisitados[0].inserir(verticepilha);
+        
+        System.out.print("Árvore geradora: ");
+        for(int i=0; i<verticesvisitados[0].tamanho();i++)
+            System.out.print(verticesvisitados[0].get(i)+",");
+        System.out.println("");
+        
+    }
     
     
+    public void buscaprofundidade (Grafos grafo, int verticeinicial){
+        funcao_visita(pilha, verticeinicial);
+    }
     
     
 }

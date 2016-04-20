@@ -19,6 +19,10 @@ public class Main {
              
         Grafos grafo = new Grafos(5);
         Grafos grafo2 = new Grafos(5);
+        Grafos grafo3 = new Grafos(5);
+        
+        System.out.println("Busca em largura");
+        System.out.println("");
         
         System.out.println("Grafo 1");
         
@@ -70,6 +74,33 @@ public class Main {
         grafo2.imprimilistaadj(4);
         
         grafo2.buscalargura(grafo2, 1);
+        
+        
+        System.out.println("*********************************************");
+        
+        System.out.println("Busca em Profundidade");
+        System.out.println("");
+        
+        grafo3.inseriraresta(0, 1);
+        grafo3.inseriraresta(0, 2);
+        grafo3.inseriraresta(1, 0);
+        grafo3.inseriraresta(1, 2);
+        grafo3.inseriraresta(2, 0);
+        grafo3.inseriraresta(2, 1);
+        grafo3.inseriraresta(2, 3);
+        grafo3.inseriraresta(2, 4);
+        grafo3.inseriraresta(3, 2);
+        grafo3.inseriraresta(3, 4);
+        grafo3.inseriraresta(4, 2);
+        grafo3.inseriraresta(4, 3);
+        
+        grafo3.imprimilistaadj(0);
+        grafo3.imprimilistaadj(1);
+        grafo3.imprimilistaadj(2);
+        grafo3.imprimilistaadj(3);
+        grafo3.imprimilistaadj(4);
+        
+        grafo.buscaprofundidade(grafo3, 1);
         
     }
     
