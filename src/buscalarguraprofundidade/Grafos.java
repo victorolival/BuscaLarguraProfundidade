@@ -12,7 +12,7 @@ package buscalarguraprofundidade;
 public class Grafos {
     private int vertices;
     private Lista[] l;
-    private FilaDinamica fila = new FilaDinamica();
+    private Fila fila = new Fila();
     private Lista[] verticesadj; 
     private Lista[] verticesvisitados; 
 
@@ -80,16 +80,35 @@ public class Grafos {
     }
 
     public void buscalargura (Grafos grafo, int verticeinicial){
-        int verticeprocessando = verticeinicial;
-        fila.Push(verticeprocessando);
-        while(!fila.Vazia()){
-            int verticevisitado = fila.Peek();
-            fila.Pop();
+        int f=0;
+        fila.push(verticeinicial);
+        while(!fila.isEmpty()){
+            int verticevisitado = fila.peek();
+            fila.pop();
             verticesvisitados[0].inserir(verticevisitado);
+            while(f < verticesadj[0].tamanho()){
+                verticesadj[0].remover(0);
+            }
             
+            for (int i = 0; i < l[verticevisitado].tamanho(); i++) {
+                verticesadj[0].inserir(l[verticevisitado].get(i));
+            }
+            for (int i = 0; i < verticesadj[0].tamanho(); i++) {
+                for (int j = 0; j < verticesvisitados[0].tamanho(); j++) {
+                    if(verticesadj[0].get(i) != verticesvisitados[0].get(j)){
+                        fila.push(verticesadj[0].get(i));
+                    }
+                }
+            }
+            
+        
             
         }
         
+        System.out.print("Arvore Geradora: ");
+        for(int r=0; r<verticesvisitados[0].tamanho();r++)
+            System.out.print(verticesvisitados[0].get(r)+",");
+        System.out.println("");
         
         
         
