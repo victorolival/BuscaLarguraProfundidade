@@ -57,5 +57,10 @@ public class Pilha {
     public int peek () {
         return itens[topo];  
     }
+
+    public int getTopo() {
+        return topo;
+    }
+    
     
 }
