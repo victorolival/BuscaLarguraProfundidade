@@ -15,7 +15,7 @@ public class Grafos {
     private Fila fila = new Fila();
     private Lista[] verticesprocessados; 
     private Lista[] verticesvisitados;
-    private Pilha pilha = new Pilha();
+    private PilhaDinamica pilha = new PilhaDinamica();
 
     
 
@@ -25,11 +25,11 @@ public class Grafos {
         for(int i=0; i<l.length;i++){
             l[i] = new Lista();
         }
-        this.verticesprocessados = new Lista[1];
+        this.verticesprocessados = new Lista[2];
         for(int j=0; j<verticesprocessados.length;j++){
             verticesprocessados[j] = new Lista();
         }
-        this.verticesvisitados = new Lista[1];
+        this.verticesvisitados = new Lista[2];
         for(int k=0; k<verticesvisitados.length;k++){
             verticesvisitados[k] = new Lista();
         }
@@ -105,21 +105,22 @@ public class Grafos {
         
     }
     
-    public void funcao_visita (Pilha pilha, int verticevisitado){
-        verticesprocessados[0].inserir(verticevisitado);
-        pilha.push(verticevisitado);
-        for (int i = 0; i < l[verticevisitado].tamanho(); i++) {
-            if(!verticesvisitados[0].consta(l[verticevisitado].get(i)) && !verticesprocessados[0].consta(l[verticevisitado].get(i))){
-                funcao_visita(pilha, l[verticevisitado].get(i));
+    public void funcao_visita (PilhaDinamica pilha, int verticearb){
+        verticesprocessados[1].inserir(verticearb);
+        pilha.push(verticearb);
+        while (!pilha.isEmpty()){
+            for (int i = 0; i < l[verticearb].tamanho(); i++) {
+                if(!verticesprocessados[1].consta(l[verticearb].get(i))){
+                    funcao_visita(pilha, l[verticearb].get(i));
+                }
             }
+            int verticepilha = pilha.peek();
+            pilha.pop();
+            verticesvisitados[1].inserir(verticepilha);
         }
-        int verticepilha = pilha.peek();
-        pilha.pop();
-        verticesvisitados[0].inserir(verticepilha);
-        
         System.out.print("Árvore geradora: ");
-        for(int i=0; i<verticesvisitados[0].tamanho();i++)
-            System.out.print(verticesvisitados[0].get(i)+",");
+        for(int i=0; i<verticesvisitados[1].tamanho();i++)
+            System.out.print(verticesvisitados[1].get(i)+",");
         System.out.println("");
         
     }
