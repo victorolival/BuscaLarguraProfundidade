@@ -15,7 +15,7 @@ public class Grafos {
     private Fila fila = new Fila();
     private Lista[] verticesprocessados; 
     private Lista[] verticesvisitados;
-    private PilhaDinamica pilha = new PilhaDinamica();
+    private Pilha pilha = new Pilha();
 
     
 
@@ -105,7 +105,7 @@ public class Grafos {
         
     }
     
-    public void funcao_visita (PilhaDinamica pilha, int verticearb){
+    public void funcao_visita (Pilha pilha, int verticearb){
         verticesprocessados[1].inserir(verticearb);
         pilha.push(verticearb);
         while (!pilha.isEmpty()){
